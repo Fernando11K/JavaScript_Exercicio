@@ -21,21 +21,28 @@
 
         </h2>
 
-        <div id=""></div>
-        <div class="container row text-center border border-warning p-5 ">
+
+        <div class="form-groups">
             <label for="comprimento">Comprimento:</label>
-            <input type="text" id="C" value="">
-
-            <label for="largura">Largura:</label>
-            <input type="text" id="L" value="">
-
-            <label for="altura">Altura:</label>
-            <input type="text" id="H" value="">
+            <input class="form-control" type="text" id="C" value="">
         </div>
 
-        <button class="btn btn-primary btn-sm w-100 my-2" onclick="calcularAzulejos()">calcular</button>
+        <div class="form-groups">
+            <label for="largura">Largura:</label>
+            <input class="form-control" type="text" id="L" value="">
+        </div>
 
-        <div id="resultado"> </div>
+        <div class="form-groups">
+            <label for="altura">Altura:</label>
+            <input class="form-control" type="text" id="H" value="">
+        </div>
+
+
+        <div class="form-groups py-3">
+            <button class="btn btn-primary btn-sm w-100" onclick="controllerCalculo()">calcular</button>
+        </div>
+
+        <div class="p-1" id="resultado"> </div>
 
     </section>
 
@@ -45,9 +52,11 @@
             var l = document.getElementById("L").value;
             var h = document.getElementById("H").value;
 
+            var resp = calcularAzulejos(c, l, h);
+            saidaDados("<div class='alert alert-primary text-center'> Quantidade de caixas de azulejos para todas as paredes: " + resp + "</div>");
         }
 
-        function calcularAzulejos() {
+        function calcularAzulejos(c, l, h) {
 
             const m2 = c * l * h;
             var resultado = m2 / 1.5;
@@ -55,9 +64,10 @@
 
         }
 
-        function saidaDados() {
-            document.getElementById("resultado").innerHTML = "<div class='alert alert-primary text-center'> Quantidade de caixas de azulejos para todas as paredes: " + resultado + "</div>";
+        function saidaDados(texto) {
+            document.getElementById("resultado").innerHTML = texto;
         }
+
     </script>
 
 </body>

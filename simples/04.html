@@ -10,10 +10,10 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 
-<body>
+<body id="teste">
 
 
-    <section class="container">
+    <section class="container ">
         <h2>4) Escreva um programa para calcular e imprimir o número de lâmpadas necessárias para iluminar um
             determinado cômodo de
             uma residência. Dados de entrada: a potência da lâmpada utilizada (em watts), as dimensões (largura e
@@ -22,35 +22,54 @@
         </h2>
 
 
-        <div class="container row text-center border border-warning p-5 ">
-            <label class="" for="potênciaLampada">Potência lâmpada (watts):</label>
-            <input type="text" id="P" value="">
-
+        <div class="form-groups">
+            <label class="" for="potênciaLampada">Qual a potência da lâmpada (watts):</label>
+            <input class="form-control" type="text" name="potência" id="P" value="">
+        </div>
+        <div class="form-groups">
             <label for="largura">Largura:</label>
-            <input type="text" id="L" value="">
-
+            <input class="form-control" type="text" name="largura" id="L" value="">
+        </div>
+        <div class="form-groups">
             <label for="comprimento">Comprimento:</label>
-            <input type="text" id="C" value="">
+            <input class="form-control" type="text" name="comprimento" id="C" value="">
         </div>
 
-        <button class="btn btn-primary btn-sm w-100 my-2" onclick="calcularLamp()">calcular</button>
-        <div id="resultado"></div>
+
+        <div class="form-groups py-3">
+            <button class="btn btn-primary btn-sm w-100 " onclick="controllerCalculo()"> Calcular </button>
+        </div>
+
+        <div class="p-1" id="resultado"></div>
 
     </section>
 
     <script>
+        function controllerCalculo() {
+            var p = document.getElementById("P").value;
+            var l = document.getElementById("L").value;
+            var c = document.getElementById("C").value;
 
-        function calcularLamp() {
-            p = document.getElementById("P").value;
-            l = document.getElementById("L").value;
-            c = document.getElementById("C").value;
-            const m2 = l * c;
-            var potenciaN = 18;
-            var resultado = (m2 * potenciaN) / p;
-            console.log(resultado);
-            document.getElementById("resultado").innerHTML = "<div class='alert alert-primary '> Lâmpadas Necessárias para iluminar o cômodo: " + resultado + "</div>";
+            var resp = calcularQuantidadeLampadas(p, l, c);
+
+
+            saidaDados("<div class='alert alert-primary text-center'> Lâmpadas necessárias para iluminar o cômodo: " + resp + "</div>");
 
         }
+
+
+        function calcularQuantidadeLampadas(p, l, c) {
+
+            const m2 = l * c;
+            var resultado = (m2 * 18) / p;
+            return resultado;
+        }
+
+        function saidaDados(texto) {
+
+            document.getElementById("resultado").innerHTML = texto;
+        }
+
 
     </script>
 

@@ -40,13 +40,23 @@
     </section>
 
     <script>
-        function calcularAzulejos() {
+        function controllerCalculo() {
             var c = document.getElementById("C").value;
             var l = document.getElementById("L").value;
             var h = document.getElementById("H").value;
+
+        }
+
+        function calcularAzulejos() {
+
             const m2 = c * l * h;
             var resultado = m2 / 1.5;
-            document.getElementById("resultado").innerHTML = "<div class='alert alert-primary '> Quantidade de caixas de azulejos para todas as paredes: " + resultado + "</div>";
+            return resultado;
+
+        }
+
+        function saidaDados() {
+            document.getElementById("resultado").innerHTML = "<div class='alert alert-primary text-center'> Quantidade de caixas de azulejos para todas as paredes: " + resultado + "</div>";
         }
     </script>
 

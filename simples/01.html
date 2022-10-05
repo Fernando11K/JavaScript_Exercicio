@@ -18,23 +18,35 @@
         <h2>1) Escreva um programa para ler o raio de um círculo, calcular e escrever a sua área <br> (Pi * (raio *
             raio))
         </h2>
+        
+        <div class="input-group mb-3">
+            <label class="text-center col-12">Informe o raio:</label>
+            <input class="form-control" type="text" id="raio" value="">
+        </div>
 
-        <label>Qual o raio?</label>
-        <input type="text" id="raio" value="">
-        <button onclick="calculoRaio()">OK</button>
+        <div class="input-group mb-3  ">
+            <button class="btn btn-danger w-100" onclick="controllerCalculo()">OK</button>
+        </div>
     </section>
 
-    <div id="texto"></div>
+    <div class="container" id="texto"></div>
 </body>
 <!--  -->
 <script>
-    function calculoRaio() {
+    function controllerCalculo() {
 
         var raio = document.getElementById("raio").value;
+        resultado = calcularAzulejos(raio);
+        outputDados("Resposta: " + resultado);
+
+    }
+
+    function calcularAzulejos(raio) {
         var resultado = Math.PI * Math.pow(raio, 2);
-        // console.log(resultado);
-        // alert(resultado);
-        document.getElementById("texto").innerHTML = "Resposta: " + resultado;
+        return resultado;
+    }
+    function outputDados(texto) {
+        document.getElementById("texto").innerHTML = texto;
     }
 
 

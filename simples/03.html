@@ -19,7 +19,7 @@
 
         <label for="celsius">Qual a temperatura em graus Celsius?</label>
         <input class="text-primary border-primary text-center" type="text" value="0" id="celsius">
-        <button class="btn btn-primary btn-sm" onclick="calcularTemp()">calcular</button>
+        <button class="btn btn-primary btn-sm" onclick="calcularTempController()">calcular</button>
 
     </section>
     <div class="container  " id="resultado"></div>
@@ -28,11 +28,21 @@
 </body>
 
 <script>
-    function calcularTemp() {
+    function calcularTempController() {
 
         c = document.getElementById("celsius").value;
-        f = c * (9 / 5) + 32
-        document.getElementById("resultado").innerHTML = "<div class = 'alert alert-primary '> Temperatura em Fahrenheit: " + f + "</div>";
+        var resultado = calcularTemp(c);
+        outData("<div class = 'alert alert-primary '> Temperatura em Fahrenheit: " + f + "</div>");
+
+    }
+
+    function calcularTemp(c) {
+        f = c * (9 / 5) + 32;
+        return f;
+    }
+
+    function outData(texto) {
+        document.getElementById("resultado").innerHTML = texto;
     }
 </script>
 

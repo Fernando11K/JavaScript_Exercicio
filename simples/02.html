@@ -22,19 +22,30 @@
 
         <label for="">Qual a temperatura?</label>
         <input type="text" value="0" id="temp">
-        <button onclick="calcularTemp()">calcular</button>
+        <button onclick="calcularTempController()">calcular</button>
 
     </section>
     <div class="container" id="texto"></div>
-<!--  -->
+    <!--  -->
 </body>
 
 <script>
-    function calcularTemp() {
+    function calcularTempController() {
         var temperaturaFah = document.getElementById("temp").value;
+
+        resultado = calcularTemp(temperaturaFah);
+        getText("<div class='alert alert-danger'> Temperatura em Celsius: " + resultado + "<div>");
+
+
+    }
+
+    function calcularTemp(temperaturaFah) {
         var c = (temperaturaFah - 32) * (5 / 9);
-        console.log(c);
-        document.getElementById("texto").innerHTML = "<div class='alert alert-danger'> Temperatura em Celsius: " + c + "<div>";
+        return c;
+    }
+
+    function getText(texto) {
+        document.getElementById("texto").innerHTML = texto;
     }
 
 

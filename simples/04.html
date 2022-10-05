@@ -44,35 +44,37 @@
 
     </section>
 
-    <script>
-        function controllerCalculo() {
-            var p = document.getElementById("P").value;
-            var l = document.getElementById("L").value;
-            var c = document.getElementById("C").value;
 
-            var resp = calcularQuantidadeLampadas(p, l, c);
-
-
-            saidaDados("<div class='alert alert-primary text-center'> Lâmpadas necessárias para iluminar o cômodo: " + resp + "</div>");
-
-        }
-
-
-        function calcularQuantidadeLampadas(p, l, c) {
-
-            const m2 = l * c;
-            var resultado = (m2 * 18) / p;
-            return resultado;
-        }
-
-        function saidaDados(texto) {
-
-            document.getElementById("resultado").innerHTML = texto;
-        }
-
-
-    </script>
 
 </body>
+
+<script>
+    function controllerCalculo() {
+        var p = document.getElementById("P").value;
+        var l = document.getElementById("L").value;
+        var c = document.getElementById("C").value;
+
+        var resp = calcularQuantidadeLampadas(p, l, c);
+
+
+        saidaDados("<div class='alert alert-primary text-center'> Lâmpadas necessárias para iluminar o cômodo: " + resp + "</div>");
+
+    }
+
+
+    function calcularQuantidadeLampadas(p, l, c) {
+
+        const m2 = l * c;
+        var resultado = (m2 * 18) / p;
+        return resultado;
+    }
+
+    function saidaDados(texto) {
+
+        document.getElementById("resultado").innerHTML = texto;
+    }
+
+
+</script>
 
 </html>

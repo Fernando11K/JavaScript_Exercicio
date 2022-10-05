@@ -46,30 +46,30 @@
 
     </section>
 
-    <script>
-        function controllerCalculo() {
-            var c = document.getElementById("C").value;
-            var l = document.getElementById("L").value;
-            var h = document.getElementById("H").value;
-
-            var resp = calcularAzulejos(c, l, h);
-            saidaDados("<div class='alert alert-primary text-center'> Quantidade de caixas de azulejos para todas as paredes: " + resp + "</div>");
-        }
-
-        function calcularAzulejos(c, l, h) {
-
-            const m2 = c * l * h;
-            var resultado = m2 / 1.5;
-            return resultado;
-
-        }
-
-        function saidaDados(texto) {
-            document.getElementById("resultado").innerHTML = texto;
-        }
-
-    </script>
+    
 
 </body>
+<script>
+    function controllerCalculo() {
+        var c = document.getElementById("C").value;
+        var l = document.getElementById("L").value;
+        var h = document.getElementById("H").value;
 
+        var resp = calcularAzulejos(c, l, h);
+        saidaDados("<div class='alert alert-primary text-center'> Quantidade de caixas de azulejos para todas as paredes: " + resp + "</div>");
+    }
+
+    function calcularAzulejos(c, l, h) {
+
+        const m2 = c * l * h;
+        var resultado = m2 / 1.5;
+        return resultado;
+
+    }
+
+    function saidaDados(texto) {
+        document.getElementById("resultado").innerHTML = texto;
+    }
+
+</script>
 </html>

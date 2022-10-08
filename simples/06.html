@@ -59,25 +59,25 @@
 
     function controllerCalculo() {
 
-        var inicioMarcacao = document.getElementById("InicioMarcação").value;
-        var finalMarcação = document.getElementById("FinalMarcação").value;
-        var combustivel = document.getElementById("Combustível").value;
-        var valorRecebido = document.getElementById("ValorRecebido").value;
+        let inicioMarcacao = document.getElementById("InicioMarcação").value;
+        let finalMarcação = document.getElementById("FinalMarcação").value;
+        let combustivel = document.getElementById("Combustível").value;
+        let valorRecebido = document.getElementById("ValorRecebido").value;
 
-        var resultadoMedia = calcularMediaConsumo(inicioMarcacao, finalMarcação, combustivel);
-        var resultadoLucro = calcularLucro(valorRecebido, combustivel);
-        retorno("<div class='alert alert-primary text-center w-50'> Média consumo: " + resultadoMedia + " </div> <div class='alert alert-success text-center w-50'> Lucro: " + resultadoLucro +"</div>");
+        let resultadoMedia = calcularMediaConsumo(inicioMarcacao, finalMarcação, combustivel);
+        let resultadoLucro = calcularLucro(valorRecebido, combustivel);
+        retorno("<div class='alert alert-primary text-center w-50'> Média consumo: " + resultadoMedia + " </div> <div class='alert alert-success text-center w-50'> Lucro: " + resultadoLucro + "</div>");
     }
 
     function calcularMediaConsumo(inicioMarcacao, finalMarcação, combustivel) {
-        var mediaConsumo = combustivel / (finalMarcação - inicioMarcacao);
+        let mediaConsumo = combustivel / (finalMarcação - inicioMarcacao);
         return mediaConsumo;
 
     }
 
     function calcularLucro(valorRecebido, combustivel) {
 
-        var lucro = valorRecebido - (combustivel * 4.87);
+        let lucro = valorRecebido - (combustivel * 4.87);
         return lucro;
     }
 

@@ -63,26 +63,48 @@
 
 <script>
     function controllerCalculoAbastecimento() {
-        var comprimento = parseFloat(document.getElementById("comprimento").value);
-        var numeroVolta = parseInt(document.getElementById("numero_volta").value);
-        var abastecimento = parseInt(document.getElementById("abastecimento").value);
-        var consumo = parseFloat(document.getElementById("consumo").value);
+        let comprimento = parseFloat(document.getElementById("comprimento").value);
+        let numeroVolta = parseInt(document.getElementById("numero_volta").value);
+        let abastecimento = parseInt(document.getElementById("abastecimento").value);
+        let consumo = parseFloat(document.getElementById("consumo").value);
 
-        var respostaCalculo = calculoAbastecimento(comprimento, numeroVolta, abastecimento, consumo);
-        outputData("Quantidade de litros mínima: " + respostaCalculo.toFixed(2));
+        if (validaDados(comprimento, numeroVolta, abastecimento, consumo)) {
+            let respostaCalculo = calculoAbastecimento(comprimento, numeroVolta, abastecimento, consumo);
+            outputData("Quantidade de litros mínima: " + respostaCalculo.toFixed(2));
+
+        }
+
     }
 
-    function calculoAbastecimento(comprimento, numeroVolta, abastecimento, consumo) {
+    function calculoAbastecimento(comprimento = 0, numeroVolta = 0, abastecimento = 0, consumo = 0) {
 
-        var totalComprimentoKm = (comprimento / 1000) * numeroVolta;
-        var totalLitros = totalComprimentoKm / consumo;
-        var quantidadeLitros = totalLitros / abastecimento;
+        let totalComprimentoKm = (comprimento / 1000) * numeroVolta;
+        let totalLitros = totalComprimentoKm / consumo; //Consumo Km/l
+        let quantidadeLitros = totalLitros / (abastecimento + 1);
         return quantidadeLitros;
 
     }
 
     function outputData(textoSaida) {
         document.getElementById("retornoTexto").innerHTML = textoSaida;
+    }
+
+    function validaDados(comprimento, numeroVolta, abastecimento, consumo) {
+
+        var error = "";
+
+        if (comprimento <= 0) error += "Erro no valor do comprimento!\n";
+        if (numeroVolta <= 0) error += "Erro no valor das voltas!\n";
+        if (abastecimento <= 0) error += "Erro no valor do abastecimento!\n";
+        if (consumo <= 0) error += "Erro no valor do consumo!\n";
+        if (error == "") return true;
+
+        alert("Erros: \n" + error);
+        return false;
+
+
+
+
     }
 
 </script>

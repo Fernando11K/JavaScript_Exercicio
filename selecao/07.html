@@ -65,9 +65,6 @@
     }
     function validadorDados(valor1, valor2) {
 
-        if (!Number.isNaN(valor1) & !Number.isNaN(valor2) & valor1 != valor2) {
-            return true;
-        }
 
         if (!Number.isNaN(valor1)) {
             if (!Number.isNaN(valor2)) {
@@ -79,7 +76,7 @@
         alert("Operação com valores não permitidos");
         return false;
 
-        // (!Number.isNaN(valor1, valor2) & valor1 != valor2) ? true : false;
+
 
     }
 

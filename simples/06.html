@@ -59,30 +59,38 @@
 
     function controllerCalculo() {
 
-        let inicioMarcacao = document.getElementById("InicioMarcação").value;
-        let finalMarcação = document.getElementById("FinalMarcação").value;
-        let combustivel = document.getElementById("Combustível").value;
-        let valorRecebido = document.getElementById("ValorRecebido").value;
+        let inicioMarcacao = parseFloat(document.getElementById("InicioMarcação").value);
+        let finalMarcação = parseFloat(document.getElementById("FinalMarcação").value);
+        let combustivel = parseFloat(document.getElementById("Combustível").value);
+        let valorRecebido = parseFloat(document.getElementById("ValorRecebido").value);
 
-        let resultadoMedia = calcularMediaConsumo(inicioMarcacao, finalMarcação, combustivel);
+        let kilometragem = calcularDistancia(inicioMarcacao, finalMarcação);
+        let resultadoMedia = calcularMediaConsumo(kilometragem, combustivel);
         let resultadoLucro = calcularLucro(valorRecebido, combustivel);
+
         retorno("<div class='alert alert-primary text-center w-50'> Média consumo: " + resultadoMedia + " </div> <div class='alert alert-success text-center w-50'> Lucro: " + resultadoLucro + "</div>");
     }
 
-    function calcularMediaConsumo(inicioMarcacao, finalMarcação, combustivel) {
-        let mediaConsumo = combustivel / (finalMarcação - inicioMarcacao);
-        return mediaConsumo;
+    function calcularDistancia(inicioMarcacao = 0 , finalMarcação = 0) {
+
+        return finalMarcação - inicioMarcacao;
 
     }
 
-    function calcularLucro(valorRecebido, combustivel) {
+    function calcularMediaConsumo(distancia = 0, combustivel = 0) {
 
-        let lucro = valorRecebido - (combustivel * 4.87);
-        return lucro;
+        return combustivel / distancia;
+
+    }
+
+    function calcularLucro(valorRecebido = 0, combustivel = 0) {
+
+        return valorRecebido - (combustivel * 4.87);
+
     }
 
 
-    function retorno(texto) {
+    function retorno(texto = "") {
         document.getElementById("view").innerHTML = texto;
     }
 </script>

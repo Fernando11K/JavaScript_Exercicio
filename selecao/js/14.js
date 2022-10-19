@@ -1,11 +1,14 @@
 function controllerVencedor() {
 
-    gremioGols = parseInt(document.getElementById("gremio").value);
-    interGols = parseInt(document.getElementById("inter").value);
+    let gremioGols = parseInt(document.getElementById("gremio").value);
+    let interGols = parseInt(document.getElementById("inter").value);
 
-
-    return (validaDados(gremioGols, interGols)) ? saidaDados(verificarResultado(gremioGols, interGols))
-        : alert("Um campo ou mais não foi preenchido!")
+    let error = validaDados(gremioGols, interGols);
+    if (error != "") {
+        alert(error);
+        return;
+    }
+    saidaDados(verificarResultado(gremioGols, interGols));
 }
 
 function verificarResultado(gremio = 0, inter = 0) {
@@ -15,8 +18,19 @@ function verificarResultado(gremio = 0, inter = 0) {
 
 }
 
-function validaDados(gremio = 0, inter = 0) {
-    return (!isNaN(gremio) && !isNaN(inter)) ? true : false;
+function validaDados(gremioGols, interGols) {
+    var error = "";
+    if (isNaN(gremioGols)) {
+        error += "Verifique o campo referente aos gols do Grêmio!" + "\n";
+    }
+    if (isNaN(interGols)) {
+        error += "Verifique o campo referente aos gols do Inter!";
+    }
+
+    return error;
+
+
+
 }
 
 function saidaDados(texto) {

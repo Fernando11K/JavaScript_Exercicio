@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 53</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body class="bg-secondary bg-opacity-10">
+
+    <section class="container-xl">
+        <p>“53) Fazer um algoritmo em pseudocódigo para ler quatro valores referentes a quatro notas escolares de um
+            aluno e
+            imprimir uma mensagem dizendo que o aluno foi aprovado, se o valor da média escolar for maior ou igual a 5.
+            Se o aluno
+            não foi aprovado, indique uma mensagem informando esta condição. Apresentar junto com uma das mensagens o
+            valor da média
+            do aluno para qualquer condição.
+        </p>
+
+    </section>
+    <section class="container ">
+        <div class="border ">
+            <div class="fw-bold text-center d-flex justify-content-center bg-white ">
+                <div class="col-2 border p-md-2 ">Nota 1 </div>
+                <div class="col-2 border p-md-2">Nota 2 </div>
+                <div class="col-2 border p-md-2">Nota 3 </div>
+                <div class="col-2 border p-md-2">Nota 4 </div>
+                <div class="col-2 border p-md-2">Total </div>
+                <div class="col-2 border p-md-2">Média </div>
+            </div>
+            <div class="col-12 bg-white">
+
+                <form class="d-flex ">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " type="text" id="nota1" placeholder="">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " type="text" id="nota2" placeholder="">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " type="text" id="nota3" placeholder="">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " type="text" id="nota4" placeholder="">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " disabled type="text" id="total"
+                        placeholder="">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " disabled type="text" id="media"
+                        placeholder="">
+
+                </form>
+
+                <div class="col-12 d-flex text-center ">
+                    <div class="col-6 fw-bold border  p-md-2">
+                        Situação aluno:
+                    </div>
+                    <div class=" col-6 border p-md-2" id="situacao">
+
+                    </div>
+                </div>
+                <div class="d-flex py-2 bg-success bg-opacity-10">
+                    <button type="button" class="col-6 btn btn-primary" onclick="controllerCalculate()"> Cadastro
+                        Notas</button>
+                    <button type="reset" class="col-6 btn btn-danger" onclick="clearForm()"> Limpar notas</button>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+</body>
+<script src="./js/53.js"></script>
+
+</html>

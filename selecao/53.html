@@ -26,6 +26,16 @@
     </section>
     <section class="container ">
         <div class="border ">
+
+            <div class="col-12 d-flex text-center bg-white ">
+                <div class="col-6 fw-bold border  p-md-2">
+                    Aluno:
+                </div>
+                <div class=" col-6 border p-md-2">
+                    <input class="form-control text-center " type="text" id="aluno">
+                </div>
+            </div>
+
             <div class="fw-bold text-center d-flex justify-content-center bg-white ">
                 <div class="col-2 border p-md-2 ">Nota 1 </div>
                 <div class="col-2 border p-md-2">Nota 2 </div>
@@ -37,16 +47,12 @@
             <div class="col-12 bg-white">
 
                 <form class="d-flex ">
-                    <input class="form-control text-center my-lg-2 mx-lg-5 " value="0" type="text" id="nota1"
-                        maxlength="2">
-                    <input class="form-control text-center my-lg-2 mx-lg-5 " value="0" type="text" id="nota2"
-                        maxlength="2">
-                    <input class="form-control text-center my-lg-2 mx-lg-5 " value="0" type="text" id="nota3"
-                        maxlength="2">
-                    <input class="form-control text-center my-lg-2 mx-lg-5 " value="0" type="text" id="nota4"
-                        maxlength="2">
-                    <input class="form-control text-center my-lg-2 mx-lg-5 " value="0" disabled type="text" id="total">
-                    <input class="form-control text-center my-lg-2 mx-lg-5 " value="0" disabled type="text" id="media">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " type="text" id="nota1" maxlength="2">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " type="text" id="nota2" maxlength="2">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " type="text" id="nota3" maxlength="2">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " type="text" id="nota4" maxlength="2">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " disabled type="text" id="total">
+                    <input class="form-control text-center my-lg-2 mx-lg-5 " disabled type="text" id="media">
 
                 </form>
 
@@ -59,9 +65,10 @@
                     </div>
                 </div>
                 <div class="d-flex py-2 bg-success bg-opacity-10">
-                    <button type="button" class="col-6 btn btn-primary" onclick="controllerCalculate()"> Cadastro
-                        Notas</button>
-                    <button type="reset" class="col-6 btn btn-danger" onclick="clearForm()"> Limpar notas</button>
+                    <button type="button" class="col-6 btn btn-primary" onclick="controllerCalculate(), limparForm()">
+                        Cadastro
+                        notas</button>
+                    <button type="reset" class="col-6 btn btn-danger">Limpar notas</button>
                 </div>
 
             </div>

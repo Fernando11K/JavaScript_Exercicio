@@ -1,4 +1,5 @@
 var aluno = {
+    nome: '',
     nota1: 0,
     nota2: 0,
     nota3: 0,
@@ -16,35 +17,46 @@ var aluno = {
 
 function controllerCalculate() {
 
-    aluno.nota1 = parseFloat(document.getElementById("nota1").value),
-        aluno.nota2 = parseFloat(document.getElementById("nota2").value),
-        aluno.nota3 = parseFloat(document.getElementById("nota3").value),
-        aluno.nota4 = parseFloat(document.getElementById("nota4").value),
+    aluno.nome = document.getElementById("aluno").value;
+    aluno.nota1 = parseFloat(document.getElementById("nota1").value);
+    aluno.nota2 = parseFloat(document.getElementById("nota2").value);
+    aluno.nota3 = parseFloat(document.getElementById("nota3").value);
+    aluno.nota4 = parseFloat(document.getElementById("nota4").value);
 
-        aluno.media = calculateMedia(aluno.nota1, aluno.nota2, aluno.nota3, aluno.nota4).toFixed(1),
-        aluno.resultado = checkAprovação(aluno.media),
-        aluno.totalNotas = calculateTotal(aluno.nota1, aluno.nota2, aluno.nota3, aluno.nota4)
+
+    aluno.media = calculateMedia(aluno.nota1, aluno.nota2, aluno.nota3, aluno.nota4);
+    aluno.resultado = checkAprovação(aluno.media);
+    aluno.totalNotas = calculateTotal(aluno.nota1, aluno.nota2, aluno.nota3, aluno.nota4);
 
     outputMediaNotas(aluno.media);
     outputAprovação(aluno.resultado);
-    outputTotalNotas(aluno.totalNotas)
+    outputTotalNotas(aluno.totalNotas);
     addDataAluno(aluno);
 
     let alunos = listDataAluno();
     assembleTable(alunos);
-    // outputAprovação(checkAprovação(outputMediaNotas(calculateMedia(nota1, nota2, nota3, nota4).toFixed(1))));
-
 
 }
 
-function clearForm() {
-    let valores = document.querySelectorAll(".form-control");
-    for (let i = 0; i < valores.length; i++) {
-        valores[i].value = '';
+function limparForm() {
 
-    }
+    setTimeout(() => {
+        form = document.getElementsByTagName("form");
+        form[0].reset();
+    }, 2000)
 
 }
+
+// Limpar formulário não adequado
+// function clearForm() {
+
+//     setTimeout(() => {
+//         let valores = document.querySelectorAll(".form-control");
+//         for (let i = 0; i < valores.length; i++) {
+//             valores[i].value = '';
+//         }
+//     }, 2000)
+// }
 // Cálculos
 function calculateMedia(nota1 = 0, nota2 = 0, nota3 = 0, nota4 = 0) {
     return (nota1 + nota2 + nota3 + nota4) / 4
@@ -64,7 +76,7 @@ function checkAprovação(media = 0) {
 
 }
 // 
-// Saída da Dados
+// Saída de Dados para HTML
 function outputAprovação(situacao) {
     document.getElementById("situacao").textContent = situacao;
 
@@ -79,7 +91,7 @@ function outputTotalNotas(total) {
 
 }
 
-// Adição de objeto e conversão para armazenamento em Local Storage
+// Armazenamento em Local Storage
 function addDataAluno(obj = {}) {
     let database = JSON.parse(localStorage.getItem("alunos"));
 
@@ -93,6 +105,7 @@ function addDataAluno(obj = {}) {
     localStorage.setItem("alunos", jsonObj)
 }
 
+// Lista com todos os alunos
 function listDataAluno() {
     let database = JSON.parse(localStorage.getItem("alunos"));
 
@@ -103,20 +116,26 @@ function listDataAluno() {
 
 }
 
+// Montagem da lista de alunos em tabela no HTML
 function assembleTable(listData = []) {
     let table = '<table class = "table ">'
-    table += "<tr>"
+    table += "<thead>";
+    table += "<tr>";
+    table += "<th> Aluno" + "</th>";
     table += "<th> Nota 1" + "</th>";
     table += "<th> Nota 2" + "</th>";
     table += "<th> Nota 3" + "</th>";
     table += "<th> Nota 4" + "</th>";
     table += "<th> Total" + "</th>";
-    table += "<th> Media" + "</th>";
+    table += "<th> Média" + "</th>";
     table += "<th> Resultado" + "</th>";
     table += "</tr>"
+    table += "</thead>";
+
     for (let i = 0; i < listData.length; i++) {
 
         table += "<tr>"
+        table += "<td>" + listData[i].nome + "</td>";
         table += "<td>" + listData[i].nota1 + "</td>";
         table += "<td>" + listData[i].nota2 + "</td>";
         table += "<td>" + listData[i].nota3 + "</td>";

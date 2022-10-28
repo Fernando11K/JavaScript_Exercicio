@@ -13,11 +13,12 @@ function saidaResultado(texto) {
 function contarMultiplos() {
     let result = "";
     for (let index = 0; index <= 100; index++) {
-        result += index + ''
+        result += index + '' 
         if (index % 10 == 0) {
-            result += " Múltiplo de 10 ";
+            result += " Múltiplo de 10 "; 
         }
-        result += '<br>'
+        result += '<br>' 
+
 
     }
     return result;

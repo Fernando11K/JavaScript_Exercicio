@@ -5,8 +5,9 @@
 })()
 function controllerNumeros() {
 
-    let listNumeros = ordenar(contarNumeros());
-    let listMultiplos = contarMultiplos(listNumeros);
+    let listNumeros = ordenar(contarNumeros(100));
+    let multiplo = 2;
+    let listMultiplos = contarMultiplos(listNumeros, multiplo);
     let listRepetidos = verifRepetidos(listNumeros);
 
     let template = "<div class='row'>"
@@ -16,7 +17,7 @@ function controllerNumeros() {
     template += "</div>";
 
     template += "<div class='col-6'>";
-    template += "   <h3>Lista de Multiplos </h3>";
+    template += "   <h3>Lista de Multiplos de "+multiplo+"</h3>";
     template += "   <p>" + listMultiplos.join(", ") + "</p>";
     template += "</div>";
 
@@ -52,21 +53,25 @@ function saidaResultado(texto) {
 
 
 // Contar de 1 a 100
-function contarNumeros() {
+function contarNumeros(quantidade = 0, sorteio = false, limiteSorteio = 1000) {
     let listNumeros = [];
-    for (let index = 1; index <= 100; index++) {
-        // listNumeros.push(index);
-        listNumeros.push(Math.floor(Math.random() * 1000));
+    for (let index = 1; index <= quantidade; index++) {
+        if (sorteio) {
+            listNumeros.push(Math.floor(Math.random() * limiteSorteio));
+
+        } else {
+            listNumeros.push(index);
+        }
 
     }
     return listNumeros;
 }
 
 // Múltiplos de 10
-function contarMultiplos(listNumeros = []) {
+function contarMultiplos(listNumeros = [], multiplo = 10) {
     let listMultiplos = [];
     for (let index = 0; index <= listNumeros.length; index++) {
-        if (listNumeros[index] % 10 == 0) {
+        if (listNumeros[index] % multiplo == 0) {
             listMultiplos.push(listNumeros[index])
         }
 

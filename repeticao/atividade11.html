@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body class="bg-black bg-opacity-10">
+
+    <section class="container">
+
+        <p>Com base no conteúdo sobre javascript com objetos. Vamos desenvolver os exercícios de forma lógica
+            com a estrutura de objetos e arquivos:
+            A) Desenvolva um gerador de tabuada, capaz de gerar a tabuada de qualquer número inteiro entre
+            1 a 10. O usuário deve informar de qual número ele deseja ver a tabuada. A saída deve ser
+            conforme o exemplo abaixo:
+
+            Tabuada de 5:
+            5 X 1 = 5
+            5 X 2 = 10
+            ...
+            5 X 10 = 50
+        </p>
+
+    </section>
+
+    <section class="container text-center fw-bold text-white">
+        <div class="mb-3 p-3 bg-success">
+            <label for="" class="form-label">Escolha o tipo de tabuada</label>
+            <select class="form-select form-select-lg " name="" id="tipoTabuada">
+                <option selected value=""></option>
+                <option value="0">Tabuada Fixa</option>
+                <option value="1">Tabuada Dinâmica</option>
+            </select>
+        </div>
+    </section>
+
+    <section class="container">
+        <form id="formularioF" class="d-none">
+            <div class="mb-3 bg-black border rounded-5 text-white text-center p-2 px-3">
+                <label for="tabuadaFixa" class="form-label fw-bold">Tabuada Fixa</label>
+                <input type="number" class="form-control" name="tabuadaFixa" id="tabuadaFixa" aria-describedby="helpId"
+                    placeholder="Multiplicando">
+                <small id="helpId" class=""> Digite o multiplicando</small>
+            </div>
+            <div class="d-grid gap-2 mb-3 ">
+                <button type="button" name="" id="botaoFixa"
+                    class="btn btn-warning bg-black rounded-5 text-white fw-bold">GERAR
+                    TABUADA FIXA</button>
+            </div>
+        </form>
+        <form id="formularioD" class="d-none">
+            <div class="mb-3 d-flex bg-primary text-white border rounded-5 ">
+
+                <div class="row col-12 m-0 p-2 ">
+                    <label for="" class="form-label text-center fw-bold">Tabuada Dinâmica</label>
+                    <div class="col-6 text-center">
+                        <input type="number" class="form-control " name="tabuadaInicial" id="tabuadaInicial"
+                            aria-describedby="helpId" placeholder="Multiplicando inicial">
+                        <small id="helpId" class=""> Digite o multiplicando inicial</small>
+                    </div>
+                    <div class="col-6 text-center">
+                        <input type="number" class="form-control" name="tabuadaFinal" id="tabuadaFinal"
+                            aria-describedby="helpId" placeholder="Multiplicando final">
+                        <small id="helpId" class=""> Digite o multiplicando final</small>
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2 mb-3 ">
+                <button type="button" id="botaoDinamica"
+                    class="btn btn-warning bg-primary rounded-5 text-white fw-bold">GERAR
+                    TABUADA
+                    DINÂMICA</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="container" >
+    <div class="d-flex text-center justify-content-between  " id="saida">
+
+    </div>
+    </section>
+</body>
+<script src="./js/atividade11.js"></script>
+
+</html>

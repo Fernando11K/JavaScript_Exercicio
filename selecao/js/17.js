@@ -4,7 +4,7 @@ var valor2 = 0;
 document
     .getElementById('operacao')
     .addEventListener('change', function () {
-        var index = document.getElementById('operacao').selectedIndex;
+        var index = this.selectedIndex;
         operacao(index);
     });
 
@@ -110,6 +110,6 @@ function recuperarDados() {
             texto += storage[i].valor1 + " - " + storage[i].valor2 + " - " +
                 storage[i].operacao + " - " + storage[i].resultado + "<br>";
         }
+        document.getElementById("dadosBanco").innerHTML = texto;
     }
-    document.getElementById("dadosBanco").innerHTML = texto;
 }

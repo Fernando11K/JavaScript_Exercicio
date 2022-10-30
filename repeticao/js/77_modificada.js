@@ -10,7 +10,7 @@ function capturaDadosIdade() {
         .addEventListener("keypress", event => {
             if (event.key == "Enter") {
                 if (event.target.value == "0") {
-                    controllerIdadeMediaIndividuos()
+                    controllerIdadeMediaIndividuos();
                 } else {
                     addIdade(event.target.value);
                     mostrarCont(idades.length)

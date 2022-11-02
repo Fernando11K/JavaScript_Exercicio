@@ -36,8 +36,8 @@ function verificaFimJogo(quantidadeLetras = 0, tentativas = 0, acertos = 0) {
 function entradaLetra(objeto) {
 
     let letra = objeto.value;
-    objeto.value = "";
     letraDigitada = letra
+    objeto.value = "";
     // document.getElementById("letraSelecionada").innerHTML = letras;
 }
 function montarLetrasTela(quantidadeLetras = 0) {
